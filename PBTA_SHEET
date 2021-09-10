@@ -1,0 +1,122 @@
+# Configure Rolls
+rollFormula = "2d6"
+
+# Define roll result ranges.
+[rollResults]
+  [rollResults.failure]
+    range = "6-"
+    label = "Ocorrerá Complicações..."
+  [rollResults.partial]
+    range = "7-9"
+    label = "Sucesso Parcial"
+  [rollResults.success]
+    range = "10+"
+    label = "Sucesso!"
+
+########################################
+## CHARACTERS ##########################
+########################################
+# Define the character group.
+[character]
+
+  # Define stats.
+  [character.stats]
+    creativity = "Criatividade"
+    focus = "Foco"
+    harmony = "Harmonia"
+    passion = "Paixão"
+    balance_white = "Yang"
+    balance_black = "Yin"
+    
+  # Define attributes.
+  [character.attributesTop]
+    [character.attributesTop.estilo]
+      type = "Text"
+      label = "Estilo de Luta"
+    [character.attributesTop.fadiga]
+      type = "Clock"
+      max = 5
+      default = 0
+    [character.attributesTop.growth]
+      type = "Xp"
+      label = "Crescimento"
+      max = 3      
+  # Define sidebar details.
+  [character.attributesLeft]
+    [character.attributesLeft.conditions]
+      type = "ListMany"
+      label = "Condição"
+      condition = true
+      options = [
+        "Medo (-2)",
+        "Zangado (-2)",
+        "Tolo (-2)",
+        "Culpado (-2)",
+        "Inseguro (-2)"
+      ]  
+    [character.attributesLeft.treinamento]
+      type = "Text"
+      label = "Treinamento"
+    [character.attributesLeft.connections]
+      type = "LongText"
+      label = "Conexões"
+    [character.attributesLeft.moment]
+      type = "LongText"
+      label = "Momento de Equilíbrio"
+
+  # Define groups for moves.
+  [character.moveTypes]
+    basic = "Básicos"
+    basic_fighting_techniques = "Técnicas Básicas de Luta"
+    fighting_techniques = "Técnicas de Luta"
+    playbook = "Arquétipo"    
+    balance = "Balanço"
+    advances = "Avanços"
+
+  # Define groups for equipment.
+
+########################################
+## NPCS ################################
+########################################
+# Define stats.
+[npc]
+
+  # Define attributes.
+  [npc.attributesTop]
+    [npc.attributesTop.guia]
+      type = "Text"
+      label = "Guia"
+    [npc.attributesTop.fadiga]
+      type = "Clock"
+      max = 10
+      default = 0
+  [npc.attributesLeft]
+        [npc.attributesLeft.status]
+      type = "ListMany"
+      label = "Princípio"
+      condition = true
+      options = [
+        "Menor (+1)",
+        "Moderado (+2)",
+        "Maior (+3)",
+      ]
+    [npc.attributesLeft.conditions]
+      type = "ListMany"
+      label = "Condição"
+      condition = true
+      options = [
+        "Medo (-2)",
+        "Zangado (-2)",
+        "Tolo (-2)",
+        "Culpado (-2)",
+        "Inseguro (-2)"
+      ]
+    [npc.attributesLeft.demeanors]
+      type = "LongText"
+      label = "Apararência"
+    [npc.attributesLeft.background]
+      type = "LongText"
+      label = "Histórico"   
+  # Define logical groups for moves.
+  [npc.moveTypes]
+    fighting_techniques = "Técnicas de Luta"
